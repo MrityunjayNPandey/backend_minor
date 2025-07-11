@@ -1,7 +1,5 @@
 const puppeteer = require("puppeteer-extra");
 const StealthPlugin = require("puppeteer-extra-plugin-stealth");
-const axios = require("axios");
-const cheerio = require("cheerio");
 const { newEggCookies } = require("./cookies");
 
 puppeteer.use(StealthPlugin());
