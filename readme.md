@@ -41,3 +41,72 @@ This backend uses Node.js and Puppeteer (with stealth plugin) to scrape product 
 - **Selector Resilience:** Add more fallback selectors and possibly use AI/ML-based DOM analysis.
 - **Performance Optimization:** Use a browser pool or scraping API for better speed and reliability.
 - **Testing & Monitoring:** Add automated tests and monitoring to detect when selectors break.
+
+# Usage Instructions
+
+## Prerequisites
+
+- Node.js (version 14 or higher)
+- npm (comes with Node.js)
+
+## Installation
+
+1. Clone or download this repository
+2. Navigate to the project directory:
+   ```bash
+   cd backend_minor
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Running the Application
+
+### Development Mode
+
+```bash
+npm start
+```
+
+### Production Mode
+
+```bash
+node index.js
+```
+
+The server will start on `http://localhost:8080` by default.
+
+## API Endpoints
+
+### 1. CSV Processing - Subset Sum Problem
+
+**Endpoint:** `POST /csv/upload`
+
+**Description:** Upload a CSV file to solve the subset sum problem. The CSV should contain a "big number" and up to 12 "small numbers" per row.
+
+**Request:**
+
+- Method: `POST`
+- URL: `http://localhost:8080/csv/upload`
+- Content-Type: `multipart/form-data`
+- Body: Form data with key `csvFile` containing the CSV file
+
+**CSV Format:**
+
+```csv
+100,10,20,30,40,50
+200,15,25,35,45,55,65
+```
+
+### 2. E-Commerce Price Comparison
+
+**Endpoint:** `GET /ecomm/compare-price/:itemNumber`
+
+**Description:** Compare product prices across Newegg, Amazon, and Flipkart using a Newegg item number.
+
+**Request:**
+
+- Method: `GET`
+- URL: `http://localhost:8080/ecomm/compare-price/{itemNumber}`
+- Parameters: `itemNumber` - The Newegg product item number
