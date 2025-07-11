@@ -1,3 +1,5 @@
+//TODO: Temp cookies to bypass newegg captcha
+
 const newEggCookies = [
   {
     name: "NV%5FW57",

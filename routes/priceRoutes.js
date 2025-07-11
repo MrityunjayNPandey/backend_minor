@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getPrices } = require("../services/agentPriceService");
+const { getPrices } = require("../services/priceService");
 
 router.get("/compare-price/:itemNumber", async (req, res) => {
   const { itemNumber } = req.params;
