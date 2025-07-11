@@ -9,7 +9,6 @@ The core logic of this application employs a brute-force method to solve a varia
 ### Advantages:
 
 - **Guaranteed Optimality:** For the given constraints, this approach guarantees that the absolute best combination of small numbers (closest sum without exceeding the big number) will always be found because it exhaustively checks every single possibility.
-- **Simplicity:** The logic is straightforward to understand and implement, especially for a limited number of elements.
 - **Efficiency for Small N:** Given that the problem specifies "up to 12" small numbers, the number of possible subsets (2^N) remains very small (2^12 = 4096). This makes the brute-force calculation extremely fast and computationally inexpensive for the specified input size.
 
 ### Limitations:
@@ -19,4 +18,26 @@ The core logic of this application employs a brute-force method to solve a varia
 
 For scenarios with a much larger number of small numbers, more advanced algorithms such as dynamic programming could be incorporated to optimize the process. However in that case, the memory requirement would still be prohibitive in case of large “big number”.
 
-npx playwright install
+# E-Commerce Price Comparison App
+
+## Implementation Summary
+
+### How the Solution Was Implemented
+
+This backend uses Node.js and Puppeteer (with stealth plugin) to scrape product prices and names from Newegg, Amazon, and Flipkart. For each site, a headless browser session is launched, navigates to the relevant product or search page, and extracts the product name and price using robust DOM selectors. For Amazon and Flipkart, Puppeteer is used to bypass anti-bot measures, and selectors are chosen to handle common HTML variations. The first matching product's name and price are returned for each site.
+
+### Limitations
+
+- **Performance:** Puppeteer is resource-intensive and slower than HTTP-based scraping.
+- **Fragility:** The solution depends on current DOM structures and class names, which may change at any time.
+- **Blocking:** Heavy or repeated use may still trigger anti-bot measures, CAPTCHAs, or IP bans.
+- **No Fuzzy Matching:** The first search result is used, which may not always be the best match.
+- **Error Reporting:** If a site blocks the scraper or selectors fail, the user only gets `null` values, with no detailed error feedback.
+
+### Next Iteration Priorities
+
+- **Proxy/Rotation Support:** Add proxy and user-agent rotation to reduce blocking risk.
+- **Better Error Handling:** Return more informative error messages to the user.
+- **Selector Resilience:** Add more fallback selectors and possibly use AI/ML-based DOM analysis.
+- **Performance Optimization:** Use a browser pool or scraping API for better speed and reliability.
+- **Testing & Monitoring:** Add automated tests and monitoring to detect when selectors break.
