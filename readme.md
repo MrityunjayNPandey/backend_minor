@@ -24,7 +24,8 @@ For scenarios with a much larger number of small numbers, more advanced algorith
 
 ### How the Solution Was Implemented
 
-This backend uses Node.js and Puppeteer (with stealth plugin) to scrape product prices and names from Newegg, Amazon, and Flipkart. For each site, a headless browser session is launched, navigates to the relevant product or search page, and extracts the product name and price using robust DOM selectors. For Amazon and Flipkart, Puppeteer is used to bypass anti-bot measures, and selectors are chosen to handle common HTML variations. The first matching product's name and price are returned for each site.
+This backend uses Node.js and Puppeteer (with stealth plugin) to scrape mos
+product prices and names from Newegg, Amazon, and Flipkart. For each site, a headless browser session is launched, navigates to the relevant product or search page, and extracts the product name and price using robust DOM selectors. For Amazon and Flipkart, Puppeteer is used to bypass anti-bot measures, and selectors are chosen to handle common HTML variations. The first matching product's name and price are returned for each site.
 
 ### Limitations
 
